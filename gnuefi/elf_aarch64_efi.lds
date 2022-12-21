@@ -15,7 +15,6 @@ SECTIONS
   }
   _etext = .;
   _text_size = . - _text;
-  .dynamic  : { *(.dynamic) }
   .data : ALIGN(4096)
   {
    _data = .;
@@ -47,6 +46,8 @@ SECTIONS
   _edata = .;
   _data_size = . - _data;
 
+  . = ALIGN(4096);
+  .dynamic  : { *(.dynamic) }
   . = ALIGN(4096);
   .dynsym   : { *(.dynsym) }
   . = ALIGN(4096);
